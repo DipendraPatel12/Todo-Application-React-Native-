@@ -42,39 +42,46 @@ const HomeScreen = ({ navigation }) => {
           <View
             style={{
               backgroundColor: 'white',
-              padding: 15,
+              padding: 20,
               margin: 12,
               borderRadius: 10,
               flexDirection: 'row',
               justifyContent: 'space-between',
-              elevation:100
+              elevation: 5,
             }}
           >
-            <View>
+            <View style={{ gap: 5 }}>
               <Text
                 style={{
                   textDecorationLine: item.complete ? 'line-through' : 'none',
                   fontSize: 15,
                 }}
               >
-                {item.detail}
+                {item.title}
               </Text>
               <Text
                 style={{
                   textDecorationLine: item.complete ? 'line-through' : 'none',
-                  fontSize: 10,
+                  fontSize: 12,
                 }}
               >
-                {item.title}
+                {item.detail}
               </Text>
             </View>
 
-            <View style={{ flexDirection: 'row', gap: 10 }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 10,
+              }}
+            >
               <Icon
                 name="edit"
                 size={24}
                 color="blue"
-                onPress={() => navigation.navigate('AddTodo', { todo: item })}
+                onPress={() => navigation.navigate('ADD TO-DO', { todo: item })}
               />
               <Icon
                 name="delete"
@@ -84,7 +91,7 @@ const HomeScreen = ({ navigation }) => {
               />
               <Ionicons
                 name="checkmark-circle"
-                size={30}
+                size={24}
                 color={item.complete ? 'green' : 'grey'}
                 onPress={() => completeIt(item.id)}
               />

@@ -21,26 +21,30 @@ const App = () => {
             headerStyle: {
               backgroundColor: '#82B1FF',
             },
-            headerTintColor: '#000',
+            headerTitleStyle: {
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'black',
+            },
           }}
         >
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
             options={({ navigation }) => ({
-              title: 'TODO APP',
+              headerTitle: 'TODO APP',
               headerRight: () => (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('AddTodo')}
+                  onPress={() => navigation.navigate('ADD TO-DO')}
+                  style={{ marginRight: 20 }}
                 >
-                  <Icon name="add" size={24} color="black" />
+                  <Icon name="add" size={30} color="black" />
                 </TouchableOpacity>
               ),
             })}
-            
           />
 
-          <Stack.Screen name="AddTodo" component={AddTodo} />
+          <Stack.Screen name="ADD TO-DO" component={AddTodo} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
